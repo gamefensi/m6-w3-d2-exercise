@@ -21,7 +21,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="posts" element={<Posts />} />
         <Route path="/" element={<PostLists />} />
-        <Route path=":slug" element={<Post />} />
+        <Route path="/:slug" element={<Post />} />
       </Routes>
       
     </Router>
@@ -58,6 +58,7 @@ const BlogPosts= {
 };
 
 function Posts() {
+  
   return (
     <div style={{ padding: 20 }}>
     <h2>Blog</h2>
@@ -68,8 +69,9 @@ function Posts() {
 }
 
 function Post() {
+  
   const { slug } = useParams();
-  const post = BlogPosts[slug];
+  const post = BlogPosts[slug]; 
   const { title, description } = post;
   return (
     <div style={{ padding: 20 }}>
